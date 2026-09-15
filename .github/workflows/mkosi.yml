@@ -1,14 +1,23 @@
-name: Deploy Image
+name: Deploy mkosi
 
 on:
   push:
     branches: [ "tanit" ]
+    paths:
+      - 'mkosi/**'
+      - '.github/workflows/mkosi.yml'
+      - '.github/workflows/reusable.yml'
   schedule:
     - cron: '0 0 */14 * *'
+  workflow_dispatch:
 
 permissions:
   contents: read
   packages: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   call-docker-publish:

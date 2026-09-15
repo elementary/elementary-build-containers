@@ -1,14 +1,23 @@
-name: Deploy Image
+name: Deploy xorriso
 
 on:
   push:
     branches: [ "tanit" ]
+    paths:
+      - 'xorriso/**'
+      - '.github/workflows/xorriso.yml'
+      - '.github/workflows/reusable.yml'
   schedule:
     - cron: '0 0 */14 * *'
+  workflow_dispatch:
 
 permissions:
   contents: read
   packages: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   call-docker-publish:
