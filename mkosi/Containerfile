@@ -2,4 +2,8 @@ FROM ubuntu:resolute
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update -y && apt-get install mkosi -y
+RUN apt-get update -y \
+    && apt-get install -y --no-install-recommends \
+        mkosi \
+        ubuntu-keyring \
+    && rm -rf /var/lib/apt/lists/*
