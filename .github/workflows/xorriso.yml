@@ -25,3 +25,4 @@ jobs:
     with:
       dockerfile: xorriso/Containerfile
       name: "xorriso"
+      description: "xorriso, GRUB and squashfs-tools, for assembling the elementary OS live ISO"

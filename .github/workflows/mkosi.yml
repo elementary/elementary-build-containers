@@ -25,3 +25,4 @@ jobs:
     with:
       dockerfile: mkosi/Containerfile
       name: "mkosi"
+      description: "mkosi, for building elementary OS images"

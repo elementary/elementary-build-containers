@@ -11,6 +11,10 @@ on:
         description: "Path to the Dockerfile"
         required: true
         type: string
+      description:
+        description: "Description for the container image"
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -54,6 +58,12 @@ jobs:
         uses: docker/metadata-action@v6
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          labels: |
+            org.opencontainers.image.title=${{ inputs.name }}
+            org.opencontainers.image.description=${{ inputs.description }}
+          annotations: |
+            org.opencontainers.image.title=${{ inputs.name }}
+            org.opencontainers.image.description=${{ inputs.description }}
           flavor: |
             latest=false
           tags: |
@@ -115,6 +125,12 @@ jobs:
           DOCKER_METADATA_ANNOTATIONS_LEVELS: index
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          labels: |
+            org.opencontainers.image.title=${{ inputs.name }}
+            org.opencontainers.image.description=${{ inputs.description }}
+          annotations: |
+            org.opencontainers.image.title=${{ inputs.name }}
+            org.opencontainers.image.description=${{ inputs.description }}
           flavor: |
             latest=false
           tags: |
