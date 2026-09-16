@@ -1,6 +1,23 @@
 version: 2
 updates:
+  # GitHub Actions used by the build and publish workflows
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+
+  # Base images in each Containerfile
+  - package-ecosystem: "docker"
+    directories:
+      - "/mkosi"
+      - "/xorriso"
+    schedule:
+      interval: "weekly"
+    groups:
+      base-images:
+        patterns:
+          - "*"
