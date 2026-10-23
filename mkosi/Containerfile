@@ -6,4 +6,5 @@ RUN apt-get update -y \
     && apt-get install -y --no-install-recommends \
         mkosi \
         ubuntu-keyring \
+        ca-certificates \
     && rm -rf /var/lib/apt/lists/*
