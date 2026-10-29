@@ -2,7 +2,7 @@ name: Deploy mkosi
 
 on:
   push:
-    branches: [ "tanit" ]
+    branches: [ "tanit", "edge" ]
     paths:
       - 'mkosi/**'
       - '.github/workflows/mkosi.yml'

@@ -2,7 +2,7 @@ name: Deploy xorriso
 
 on:
   push:
-    branches: [ "tanit" ]
+    branches: [ "tanit", "edge" ]
     paths:
       - 'xorriso/**'
       - '.github/workflows/xorriso.yml'
